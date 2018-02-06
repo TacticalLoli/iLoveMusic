@@ -11,12 +11,12 @@
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
   <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <script src="assets/js/youtube.js" type="text/javascript"></script>
+  <!-- <script src="assets/js/youtube.js" type="text/javascript"></script> -->
   <script src="https://apis.google.com/js/client.js?onload=onClientLoad" type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
   <link rel="stylesheet" href="./assets/css/bandsintown.css">
   <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
-  <script src="assets/js/firebase.js" type="text/javascript"></script>
+  <!-- <script src="assets/js/firebase.js" type="text/javascript"></script> -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <script>
@@ -116,58 +116,49 @@
     </a>
   </div><!-- /.site-feature -->
 
-<!-- div bandsintown start -->
   <div id="bandsintown">
-  <div class="container"> <!-- start of container -->
+    <div class="container">
+      <div class="js-no-artist alert alert-danger"><h1 class="text-uppercase text-center h3">No Artist Found!!!</h1></div><!-- /.js-no-artist -->
 
-    <div class="row"> <!-- div row start   -->
-<!-- div for no artist found -->
-      <div class="noArtist"></div>
-<!-- div bandsintown left column start -->
-      <div class="col-sm-4">
-        <div class="modal fade" id="imageModal" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <img class="img-responsive modalImage" src=''></img>
-                </div>
-              </div>
-            </div>
-          </div>
-        <div class="list"></div>
-      </div>
-<!-- div bandsintown left column end -->
-<!-- div bandsintown right column start -->
-      <div class="col-sm-8">
-      <div class="eventTable">
-        <div><h2>EVENT</h2></div>
-        <div class="table-responsive">
-        <table class="table table-condensed">
-          <thead>
-            <tr>
-              <th class="th">Date</th>
-              <th class="th">Venue</th>
-              <th class="th">Location</th>
-              <th class="th">Tickets</th>
-            </tr>
-          </thead>
-            <tbody class="event table-hover">
-            </tbody>
-          </table>
-          </div>
-      </div>
-      </div>
-<!-- div bandsintown right column end -->
-    </div> <!-- div row end   -->
+      <div class="row js-artist-info">
+        <div class="col-sm-3">
+          <div class="artist-profile">
+            <div class="page-header">
+              <h1 class="js-artist-name text-uppercase"></h1>
+            </div><!-- /.page-header -->
+            <p><img class="js-artist-image img-responsive img-thumbnail" src=""></p>
+            <p><a class="js-read-more btn btn-block btn-primary text-uppercase" href="#">About the Artist</a></p>
+          </div><!-- /.artist-profile -->
+        </div><!-- /.col -->
 
-<!-- div to show article   -->
-  <div id="article"></div>
+        <div class="col-sm-9">
+          <div class="page-header">
+            <h1 class="text-uppercase">Upcoming Events</h1>
+          </div><!-- /.page-header -->
 
-    </div>  <!-- div row end   -->
-  </div>  <!-- end of container -->
-  </div>
-<!-- div bandsintown end -->
+          <div class="js-no-events alert alert-danger"><h3 class="text-uppercase text-center">No Upcoming Events!!!</h3></div><!-- /.js-no-artist -->
+
+          <div class="table-responsive">
+            <table class="table table-striped event-table js-event-table">
+              <thead>
+                <tr>
+                  <th class="th">Date</th>
+                  <th class="th">Venue</th>
+                  <th class="th">Location</th>
+                  <th class="th">Tickets</th>
+                </tr>
+              </thead>
+              <tbody class="event"></tbody>
+            </table>
+          </div><!-- /.table-responsive -->
+
+        </div><!-- /.col -->
+      </div><!-- /.js-artist-info -->
+
+      <div class="js-artist-bio artist-bio"></div><!-- /.artist-bio -->
+
+    </div><!-- /.container -->
+  </div><!-- /#bandsintown -->
 
   <div id="youtube">
     <div class="container">
@@ -326,8 +317,8 @@
 </section>
   <!-- footer end -->
 
-  <script type="text/javascript" src="./assets/js/social.js"></script>
-  <script type="text/javascript" src="./assets/js/spotify.js"></script>
+  <!-- <script type="text/javascript" src="./assets/js/social.js"></script> -->
+  <!-- <script type="text/javascript" src="./assets/js/spotify.js"></script> -->
   <script type="text/javascript" src="./assets/js/bandsintown.js"></script>
 </body>
 </html>

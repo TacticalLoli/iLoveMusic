@@ -164,7 +164,8 @@ animation: facebook 25s ease infinite;
 #facebook .page-header,
 #instagram .page-header,
 #spotify .page-header,
-#youtube .page-header {
+#youtube .page-header,
+#bandsintown .page-header{
   color: #fff;
   font-family: 'Lato', sans-serif;
   margin: 10px 0 20px;
@@ -173,7 +174,8 @@ animation: facebook 25s ease infinite;
 #facebook .page-header h1,
 #instagram .page-header h1,
 #spotify .page-header h1,
-#youtube .page-header h1 {
+#youtube .page-header h1,
+#bandsintown .page-header h1 {
   font-weight: bold;
   text-shadow: 0 1px 2px rgba(0,0,0,.6);
 }
