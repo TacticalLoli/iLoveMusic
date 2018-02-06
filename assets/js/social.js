@@ -6,7 +6,6 @@ var instaAccessToken = "&access_token=36374177.8899a4f.8288696c32cb409b8938cf3f0
 var fbFields="&fields=posts{message,created_time,link,full_picture,type}&access_token=160526811177215|24f1091fcfbe3cf6a77775e061a9544f"
 var cardsToShow = 6;
 
-
 //Masonry Grid setup - facebook
 var facebookGrid = $('#fb-row').imagesLoaded( function() {
 	facebookGrid.masonry({
@@ -25,11 +24,7 @@ var instaGrid = $('#insta-row').imagesLoaded( function() {
 	});
 });
 
-
 function populateSocial (artistSearch) {
-	console.log("Entered function")
-
-	event.preventDefault()
 
 	//Condition where the artist name has a space
 	var artistWithSpace = artistSearch;
@@ -39,11 +34,8 @@ function populateSocial (artistSearch) {
 	var fbIDURL = fbGetIDURL+artist+fbGetIDToken;
 	var instaAjaxURL = instaURL + artistInsta + "/media?callback=?";
 	
-
 	//Instagram API start
 	$.getJSON(instaAjaxURL, function(result){
-		console.log(result)
-		console.log("Instagram call successful")
 		//Empty out previous results
 		$('#insta-row').empty()
 		$('#insta-row').append('<div class="grid-sizer">');
@@ -52,9 +44,9 @@ function populateSocial (artistSearch) {
 		var instaData = result.items;
 
 		//Start a loop that will append insta cards to our div
-		for (var i = 0;i<cardsToShow;i++) {
+		for (var i = 0;i < cardsToShow; i++) {
 			var dataset = instaData[i];
-			console.log(dataset)
+
 			//Setting up variables for the card
 			var imgURL = dataset.images.standard_resolution.url;
 			var createdTime = dataset.created_time;
@@ -66,25 +58,13 @@ function populateSocial (artistSearch) {
 			var likes = dataset.likes.count;
 			var link = dataset.link;
 
-			// console.log("===== INSTAGRAM ========")
-			// console.log(imgURL)
-			// console.log(createdTime)
-			// console.log(message)
-			// console.log(likes)
-			// console.log(link)
-			// console.log("===== INSTAGRAM  END========")
-
 			//Setting up DOM elements for the card
 			var instaColumn    = $('<div class="col-sm-4 insta-col">');
 			var instaPostImg = $("<img>");
-			var instaCard = $("<div>")
-			var instaMessageDiv = $("<div>");
+			var instaCard = $("<div class='instaCard'>")
+			var instaMessageDiv = $("<div class='fbMessage'>");
 			var instaImgURL = $("<a>")
 			var instaIconImg = $("<img>")
-
-			//Add classes to dom elements for styling
-			instaMessageDiv.addClass("fbMessage")
-			instaCard.addClass("instaCard")
 
 			//setup image
 			instaPostImg.attr({
@@ -97,6 +77,7 @@ function populateSocial (artistSearch) {
 				src: "assets/img/instaIcon.png",
 				class: " img-responsive center-block icon pull-right",
 			})
+
 			//setup link on the image that will redirect to instagram post
 			instaImgURL.attr("href", link);
 			instaImgURL.attr("target", "_blank");
@@ -105,8 +86,7 @@ function populateSocial (artistSearch) {
 			instaCard.append(instaIconImg)
 			instaImgURL.append(instaPostImg);
 			instaCard.append(instaImgURL);
-			
-
+		
 			//If a message exists, add it to the card, else do nothing
 			if (message) {
 				instaMessageDiv.html("<strong>"+message+"</strong>"+"<hr>"+"<span class='glyphicon glyphicon-heart'></span> " + likes);
@@ -114,7 +94,6 @@ function populateSocial (artistSearch) {
 				message = ""
 			}
 			
-
 			//append card to column
 			instaColumn.append(instaCard)
 			console.log("This is running -- instagram")
@@ -126,10 +105,7 @@ function populateSocial (artistSearch) {
 		}
 	})
 
-
-
 	// fb ajax call
-
 	//First call to get artist ID from artist name
 	$.ajax({
 		url: fbIDURL,
@@ -149,77 +125,57 @@ function populateSocial (artistSearch) {
 
 			//Get fb post data array and start loop
 			var fbData = result.posts.data;
-			for (var i = 0;i<cardsToShow;i++) {
-				var dataset = fbData[i];
 
-				//setup image, post time, message and link to fb page
-				var imgURL = dataset.full_picture;
-				var createdTime = dataset.created_time;
-				var link = dataset.link;
-				var message = dataset.message;
-
-				// console.log("=============")
-				// console.log(link)
-
-				//Setup DOM elements
-				var fbColumn    = $('<div class="col-sm-4 fb-col">');
-				var fbPostImg = $("<img>");
-				var fbIconImg = $("<img>")
-				var fbCard = $("<div>")
-				var fbMessageDiv = $("<div>");
-				var fbImgURL = $("<a>")
-
-
-				//Add classes for styling
-				fbMessageDiv.addClass("fbMessage")
-				fbCard.addClass("fbCard")
-				fbPostImg.attr({
-					src: imgURL,
-					class: " img-responsive center-block",
-				})
-
-				//fb icon stuff
-				fbIconImg.attr({
-					src: "assets/img/fbIcon.png",
-					class: " img-responsive center-block icon pull-right",
-				})
-
-				fbImgURL.attr("href", link);
-				fbImgURL.attr("target", "_blank");
-				fbImgURL.append(fbPostImg);
-
-				fbCard.append(fbIconImg);
-				fbCard.append(fbImgURL);
-				
-				//if message add to card
-				if (message) {
-					fbMessageDiv.html("<strong>"+message+"</strong>");
-					fbCard.append(fbMessageDiv);
-					message = ""
+			$.each(fbData, function(i, data) {
+				if (i <= 10) {
+					//setup image, post time, message and link to fb page
+					var imgURL = data.full_picture;
+					var createdTime = data.created_time;
+					var link = data.link;
+					var message = data.message;
+	
+					//Setup DOM elements
+					var fbColumn    = $('<div class="col-sm-4 fb-col">');
+					var fbPostImg = $("<img>");
+					var fbCard = $("<div class='fbCard'>")
+					var fbMessageDiv = $("<div class='fbMessage'>");
+					var fbImgURL = $("<a>")
+	
+					//Add classes for styling
+					fbPostImg.attr({
+						src: imgURL,
+						class: " img-responsive center-block",
+					})
+	
+					fbImgURL.attr("href", link);
+					fbImgURL.attr("target", "_blank");
+					fbImgURL.append(fbPostImg);
+	
+					fbCard.append(fbImgURL);
+					
+					//if message add to card
+					if (message) {
+						fbMessageDiv.html(message);
+						fbCard.append(fbMessageDiv);
+						message = "";
+					}
+	
+					//append stuff to the doc
+					fbColumn.append(fbCard)
+	
+					// Masonry layout
+					facebookGrid.append( fbColumn ).masonry( 'appended', fbColumn );
+					facebookGrid.imagesLoaded( function() {
+						facebookGrid.masonry('layout');
+					});
 				}
-
-
-				//append stuff to the doc
-				fbColumn.append(fbCard)
-		        // Masonry layout
-		        facebookGrid.append( fbColumn ).masonry( 'appended', fbColumn );
-		        facebookGrid.imagesLoaded( function() {
-		        facebookGrid.masonry('layout');
-		        });
-			}
+			});
 
 		})
 	})
-
-
-
-
 }
 
 $(document).ready(function() {
-
-
-
 	$("#searchButton").on("click", function(){
 		$('#insta-row').empty()
 		$('#insta-row').append('<div class="grid-sizer">');
@@ -227,7 +183,4 @@ $(document).ready(function() {
 		$('#fb-row').append('<div class="grid-sizer">');
 		populateSocial($("#search").val());
 	})
-
-	
-
 })

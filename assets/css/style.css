@@ -85,33 +85,32 @@ body {
   background-color: #530084;
 }
 
-/*------_Social Style Section  --------*/
+/*------------------------------------*\
+  #Social
+\*------------------------------------*/
 
-/*Styling for FB Cards*/
-.fbCard {
-	border: 1px solid black;
-	box-shadow:1px 3px 8px #3b5998;
-	border-radius: 5px;
-	padding: 5px;
-	margin: 5px;
-	background: linear-gradient(326deg, #8b9dc3, #dfe3ee, #f7f7f7);
-	background-size: 600% 600%;
-
-	-webkit-animation: fbInimation 15s ease infinite;
-	-moz-animation: fbInimation 15s ease infinite;
-	animation: fbInimation 15s ease infinite;
+#facebook {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: linear-gradient(239deg, #3e69a2, #00778f);
 }
 
-/*Styling for instagram cards*/
+#instagram {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: linear-gradient(344deg, #fb3958,  #458eff);
+}
+
+.fbCard {
+	margin-bottom: 30px;
+	background-color: #8b9dc3;
+}
+
 
 .instaCard {
-	border: 1px solid black;
-	box-shadow:1px 3px 8px #3b5998;
-	border-radius: 5px;
-	padding: 5px;
-  margin: 5px;
+	padding: 10px;
+	margin-bottom: 5px;
   background-color: rgba(255,255,255,0.5);
-
 }
 
 .grid-sizer {
@@ -121,38 +120,11 @@ body {
 .icon {
   width: 20px;
   height: 20px;
-  /*display: inline-block;*/
-}
-
-#facebook {
-  padding-top: 60px;
-  padding-bottom: 60px;
-background: linear-gradient(239deg, #3e69a2, #00778f);
-background-size: 400% 400%;
-
--webkit-animation: facebook 7s ease infinite;
--moz-animation: facebook 7s ease infinite;
-animation: facebook 7s ease infinite;
-}
-
-#instagram {
-  padding-top: 60px;
-  padding-bottom: 60px;
-background: linear-gradient(344deg, #fb3958,  #458eff);
-background-size: 600% 600%;
-
--webkit-animation: facebook 25s ease infinite;
--moz-animation: facebook 25s ease infinite;
-animation: facebook 25s ease infinite;
 }
 
 .fbMessage {
-  border-top: 1px solid teal;
-  font-family: 'Lato', sans-serif;
-  padding: 3px;
-  margin-top: 3px;
-  /*display: inline-block;*/
-
+  border-top: 5px solid teal;
+  padding: 10px 15px;
 }
 
 .recentSearchButton{
@@ -194,60 +166,6 @@ animation: facebook 25s ease infinite;
 iframe {
   border-radius: 5px;
 }
-
-
-/*Animation for various segments */
-@-webkit-keyframes fbInimation {
-    0%{background-position:86% 0%}
-    50%{background-position:15% 100%}
-    100%{background-position:86% 0%}
-}
-@-moz-keyframes fbInimation {
-    0%{background-position:86% 0%}
-    50%{background-position:15% 100%}
-    100%{background-position:86% 0%}
-}
-@keyframes fbInimation {
-    0%{background-position:86% 0%}
-    50%{background-position:15% 100%}
-    100%{background-position:86% 0%}
-}
-
-@-webkit-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-
-@-webkit-keyframes facebook {
-    0%{background-position:0% 10%}
-    50%{background-position:100% 91%}
-    100%{background-position:0% 10%}
-}
-@-moz-keyframes facebook {
-    0%{background-position:0% 10%}
-    50%{background-position:100% 91%}
-    100%{background-position:0% 10%}
-}
-@keyframes facebook {
-    0%{background-position:0% 10%}
-    50%{background-position:100% 91%}
-    100%{background-position:0% 10%}
-}
-
-
-
-
 
 /*------------------------------------*\
   #Artist Navigation

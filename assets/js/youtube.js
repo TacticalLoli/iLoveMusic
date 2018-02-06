@@ -34,7 +34,6 @@ function search(q) {
 function onSearchResponse(response) {
 
   var videos = response.items;
-  console.log( videos );
 
   // Clear out youtube div
   $('#videos-row').html('');
