@@ -399,15 +399,11 @@ iframe {
 \*------------------------------------*/
 
 #footer {
-  background-image: url("../img/footer.png");
-  background-repeat:no-repeat;
-  background-size:cover;
-  background-position: 300px 0;
+  color: #fff;
   text-align: center;
-  color: #FFFFFF;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #3b3b3b;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #000;
 }
 
 #footer a {

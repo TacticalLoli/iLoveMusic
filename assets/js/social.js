@@ -9,18 +9,18 @@ var cardsToShow = 6;
 //Masonry Grid setup - facebook
 var facebookGrid = $('#fb-row').imagesLoaded( function() {
 	facebookGrid.masonry({
-	itemSelector: '.fb-col',
-	columnWidth: '.grid-sizer',
-	percentPosition: true
+		itemSelector: '.fb-col',
+		columnWidth: '.grid-sizer',
+		percentPosition: true
 	});
 });
 
 //Masonry Grid setup - instagram
 var instaGrid = $('#insta-row').imagesLoaded( function() {
 	instaGrid.masonry({
-	itemSelector: '.insta-col',
-	columnWidth: '.grid-sizer',
-	percentPosition: true
+		itemSelector: '.insta-col',
+		columnWidth: '.grid-sizer',
+		percentPosition: true
 	});
 });
 
@@ -128,6 +128,7 @@ function populateSocial (artistSearch) {
 
 			$.each(fbData, function(i, data) {
 				if (i <= 10) {
+			
 					//setup image, post time, message and link to fb page
 					var imgURL = data.full_picture;
 					var createdTime = data.created_time;
@@ -135,7 +136,7 @@ function populateSocial (artistSearch) {
 					var message = data.message;
 	
 					//Setup DOM elements
-					var fbColumn    = $('<div class="col-sm-4 fb-col">');
+					var fbColumn = $('<div class="col-sm-4 fb-col">');
 					var fbPostImg = $("<img>");
 					var fbCard = $("<div class='fbCard'>")
 					var fbMessageDiv = $("<div class='fbMessage'>");
@@ -162,6 +163,8 @@ function populateSocial (artistSearch) {
 	
 					//append stuff to the doc
 					fbColumn.append(fbCard)
+
+					console.log(fbColumn)
 	
 					// Masonry layout
 					facebookGrid.append( fbColumn ).masonry( 'appended', fbColumn );
@@ -174,13 +177,3 @@ function populateSocial (artistSearch) {
 		})
 	})
 }
-
-$(document).ready(function() {
-	$("#searchButton").on("click", function(){
-		$('#insta-row').empty()
-		$('#insta-row').append('<div class="grid-sizer">');
-		$('#fb-row').empty()
-		$('#fb-row').append('<div class="grid-sizer">');
-		populateSocial($("#search").val());
-	})
-})
