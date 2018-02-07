@@ -30,18 +30,9 @@ function spotifySearch (artistSearch) {
 				//loop through and add albums
 				var spotifyEmbed  = (albumData.items[0].uri);
 				var spotifyAlbumURI = "https://open.spotify.com/embed?uri="+spotifyEmbed+"&theme=black"
-				// spotifyIframe.attr("src", spotifyAlbumURI);
-				var col5Div = $('<div class="col-sm-12">');
-
-				col5Div.html('<iframe src="'+spotifyAlbumURI+'" width="100%" height="400" frameborder="0" allowtransparency="true" ></iframe>');
-				spotifySection.append(col5Div)
+				var spotifyPlayer = '<iframe src="'+spotifyAlbumURI+'" width="100%" height="400" frameborder="0" allowtransparency="true" ></iframe>';
+				spotifySection.append(spotifyPlayer)
 			})
 		}
 	})
 }
-
-$(document).ready(function() {
-	$("#searchButton").on("click", function(){
-		spotifySearch($("#search").val());
-	})
-})
